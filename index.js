@@ -52,8 +52,6 @@ let topMovies =[
 
 app.use(morgan('combined', {stream: accessLogStream}));
 
-app.get('/movies', (req, res) => {
-  res.json(topMovies);
 
   app.get('/', (req, res) => {
     res.send('Welcome to my favorite movie list!');
@@ -69,4 +67,3 @@ app.get('/movies', (req, res) => {
   app.listen(8080, () => {
     console.log('Your app is listening on port 8080.');
   });
-});
