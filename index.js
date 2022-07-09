@@ -57,7 +57,11 @@ app.use(morgan('combined', {stream: accessLogStream}));
     res.send('Welcome to my favorite movie list!');
   });
 
-  app.use(express.static('public'));
+  app.get('/movies', (req, res) => {
+    res.json(topMovies)
+});
+
+ app.use(express.static('public'));
 
   app.use((err, req, res, next) => {
     console.error(err.stack);
