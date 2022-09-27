@@ -1,0 +1,1 @@
+Using React to build client-side for a movie application called myFlix-client
