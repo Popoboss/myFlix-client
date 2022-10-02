@@ -30298,7 +30298,6 @@ function LoginView(props) {
 }
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
-lol;
 var _c;
 $RefreshReg$(_c, "LoginView");
 
