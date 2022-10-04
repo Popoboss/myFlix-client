@@ -30220,7 +30220,7 @@ function LoginView(props) {
     const [password, setPassword] = (0, _react.useState)("");
     const handleSubmit = (e)=>{
         e.preventDefault();
-        /* Send a request to the server for authentication */ (0, _axiosDefault.default).post("YOUR_API_URL/login", {
+        /* Send a request to the server for authentication */ (0, _axiosDefault.default).post("https://wlad-movie-app.herokuapp.com/login", {
             Username: username,
             Password: password
         }).then((response)=>{
