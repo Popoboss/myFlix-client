@@ -15,7 +15,7 @@ export function LoginView(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         /* Send a request to the server for authentication */
-        axios.post('https://wlad-movie-app.herokuapp.com/login', {
+        axios.post('YOUR_API_URL/login', {
             Username: username,
             Password: password
         })
