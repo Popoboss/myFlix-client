@@ -1,10 +1,4 @@
-// myFlix-client/src/main-view/main-view.jsx
-import React from 'react';
-import axios from 'axios';
 
-import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
 
 export class MainView extends React.Component {
 
