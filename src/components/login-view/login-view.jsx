@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { RegistrationView } from '../registration-view/registration-view.scss';
 
+import axios from 'axios';
+
 
 
 
@@ -10,13 +12,23 @@ export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    // src/components/login-view/login-view.jsx
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
         /* Send a request to the server for authentication */
-        /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */
-        props.onLoggedIn(username)
+        axios.post('YOUR_API_URL/login', {
+            Username: username,
+            Password: password
+        })
+            .then(response => {
+                const data = response.data;
+                props.onLoggedIn(data);
+            })
+            .catch(e => {
+                console.log('no such user')
+            });
     };
 
     return (
