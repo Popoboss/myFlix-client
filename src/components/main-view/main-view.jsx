@@ -41,10 +41,32 @@ export class MainView extends React.Component {
     /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
 
     //  src/components/main-view/main-view.jsx
-    onLoggedIn(user) {
+    //  src/components/main-view/main-view.jsx
+    onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
         });
+
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+
+    // src/components/main-view/main-view.jsx
+    getMovies(token) {
+        axios.get('https://myFlix-client.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then(response => {
+                // Assign the result to the state
+                this.setState({
+                    movies: response.data
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
 
