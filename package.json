@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Popoboss/Movie_Api.git"
+    "url": "git+https://github.com/Popoboss/myFlix-client.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Popoboss/Movie_Api/issues"
+    "url": "https://github.com/Popoboss/myFlix-client/issues"
   },
-  "homepage": "https://github.com/Popoboss/Movie_Api#readme",
+  "homepage": "https://github.com/Popoboss/myFlix-client#readme",
   "dependencies": {
     "@parcel/transformer-sass": "^2.7.0",
     "axios": "^0.27.2",
