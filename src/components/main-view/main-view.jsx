@@ -1,31 +1,40 @@
-// myFlix-client/src/main-view/main-view.jsx
+// main-view.jsx
 import React from 'react';
 import axios from 'axios';
 
-import { LoginView } from '../login-view/login-view';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export class MainView extends React.Component {
 
     constructor() {
         super();
-        // Initial state is set to null
+
         this.state = {
             movies: [],
-            selectedMovie: null,
             user: null
         };
     }
 
-    componentDidMount() {
-        axios.get('https://wlad-movie-app.herokuapp.com/movies')
+    // src/components/main-view/main-view.jsx
+    getMovies(token) {
+        axios.get('https://wlad-movie-app.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
             .then(response => {
+                // Assign the result to the state
                 this.setState({
                     movies: response.data
                 });
             })
-            .catch(error => {
+            .catch(function (error) {
                 console.log(error);
             });
     }
@@ -47,49 +56,76 @@ export class MainView extends React.Component {
             user: authData.user.Username
         });
 
-        // src/components/main-view/main-view.jsx
-        getMovies(token) {
-            axios.get('YOUR_API_URL/movies', {
-                headers: { Authorization: `Bearer ${token}` }
-            })
-                .then(response => {
-                    // Assign the result to the state
-                    this.setState({
-                        movies: response.data
-                    });
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-
-
-
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
 
 
+
+    // src/components/main-view/main-view.jsx
+    getMovies(token) {
+        axios.get('https://wlad-movie-app.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then(response => {
+                // Assign the result to the state
+                this.setState({
+                    movies: response.data
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    //  src/components/main-view/main-view.jsx
+
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
+
+
+
+
+
+
+
+
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, user } = this.state;
 
-        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
-        // Before the movies have been loaded
+        if (!user) return <Row>
+            <Col>
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+        </Row>
         if (movies.length === 0) return <div className="main-view" />;
 
         return (
-            <div className="main-view">
-                {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-                {selectedMovie
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-                    ))
-                }
-            </div>
+            <Router>
+                <Row className="main-view justify-content-md-center">
+                    <Route exact path="/" render={() => {
+                        return movies.map(m => (
+                            <Col md={3} key={m._id}>
+                                <MovieCard movie={m} />
+                            </Col>
+                        ))
+                    }} />
+                    <Route path="/movies/:movieId" render={({ match }) => {
+                        return <Col md={8}>
+                            <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                        </Col>
+                    }} />
+
+                </Row>
+            </Router>
         );
     }
 }
