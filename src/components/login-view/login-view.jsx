@@ -1,75 +1,115 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { RegistrationView } from '../registration-view/registration-view.scss';
 
 
-import axios from 'axios';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import {
+    Form,
+    Button,
+    Card,
+    CardGroup,
+    Container,
+    Col,
+    Row,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
+export default function LoginView(props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [usernameErr, setUsernameErr] = useState("");
+    const [passwordErr, setPasswordErr] = useState("");
 
-export function LoginView(props) {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    // Declare hook for each input
-    const [usernameErr, setUsernameErr] = useState('');
-    const [passwordErr, setPasswordErr] = useState('');
-
-    // validate user inputs
     const validate = () => {
         let isReq = true;
         if (!username) {
-            setUsernameErr('Username Required');
+            setUsernameErr("Username Required");
             isReq = false;
         } else if (username.length < 2) {
-            setUsernameErr('Username must be 2 characters long');
+            setUsernameErr("Username must have at least 2 characters");
             isReq = false;
         }
         if (!password) {
-            setPasswordErr('Password Required');
+            setPasswordErr("Password Required");
             isReq = false;
         } else if (password.length < 6) {
-            setPassword('Password must be 6 characters long');
+            setPasswordErr("Password must have at least 6 characters");
             isReq = false;
         }
-
         return isReq;
-    }
-
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        /* Send a request to the server for authentication */
-        axios.post('https://wlad-movie-app.herokuapp.com/login', {
-            Username: username,
-            Password: password
-        })
-            .then(response => {
-                const data = response.data;
-                props.onLoggedIn(data);
-            })
-            .catch(e => {
-                console.log('no such user')
-            });
+        const isReq = validate();
+        if (isReq) {
+            axios
+                .post("https://my-flix-nejla.herokuapp.com/login", {
+                    Username: username,
+                    Password: password,
+                })
+                .then((response) => {
+                    const data = response.data;
+                    props.onLoggedIn(data);
+                })
+                .catch((e) => {
+                    console.log(e, "no such user");
+                });
+        }
     };
 
-
-
-
     return (
-        <Form>
-            <Form.Group controlId="formUsername">
-                <Form.Label>Username:</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
-            </Form.Group>
+        <Container style={{ width: 600 }}>
+            <Row>
+                <Col>
+                    <CardGroup>
+                        <Card style={{ marginTop: 100, marginBottom: 50 }}>
+                            <Card.Body>
+                                <Card.Title style={{ textAlign: "center", fontSize: "2rem" }}>
+                                    Login
+                                </Card.Title>
+                                <Form>
+                                    <Form.Group controlId="formUsername">
+                                        <Form.Label>Username:</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            value={username}
+                                            onChange={(e) => setUsername(e.target.value)}
+                                            required
+                                            placeholder="Enter a username"
+                                        />
+                                        {usernameErr && <p>{usernameErr}</p>}
+                                    </Form.Group>
 
-            <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-            </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
-                Submit
-            </Button>
-        </Form>
+                                    <Form.Group controlId="formPassword">
+                                        <Form.Label>Password:</Form.Label>
+                                        <Form.Control
+                                            type="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            required
+                                            placeholder="Enter a password"
+                                        />
+                                        {passwordErr && <p>{passwordErr}</p>}
+                                    </Form.Group>
+                                    <Form.Group className="mt-2">
+                                        <Button
+                                            variant="primary"
+                                            type="submit"
+                                            onClick={handleSubmit}
+                                        >
+                                            Submit
+                                        </Button>
+                                        <Link to="/register" className="ml-2">
+                                            Register
+                                        </Link>
+                                    </Form.Group>
+                                </Form>
+                            </Card.Body>
+                        </Card>
+                    </CardGroup>
+                </Col>
+            </Row>
+        </Container>
     );
 }
-
