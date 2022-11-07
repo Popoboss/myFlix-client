@@ -40802,6 +40802,7 @@ function FavoriteMovies({ favoriteMovieList , onRemoveFavorite  }) {
                             md: 6,
                             lg: 4,
                             className: "mt-3",
+                            className: "fav-movie",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Figure), {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -40819,7 +40820,7 @@ function FavoriteMovies({ favoriteMovieList , onRemoveFavorite  }) {
                                                 children: Title
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 22,
+                                                lineNumber: 24,
                                                 columnNumber: 41
                                             }, this)
                                         ]
@@ -40839,7 +40840,7 @@ function FavoriteMovies({ favoriteMovieList , onRemoveFavorite  }) {
                                     children: "Remove"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                    lineNumber: 25,
+                                    lineNumber: 29,
                                     columnNumber: 33
                                 }, this)
                             ]
