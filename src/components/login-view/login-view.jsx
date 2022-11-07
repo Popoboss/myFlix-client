@@ -44,7 +44,7 @@ export default function LoginView(props) {
         const isReq = validate();
         if (isReq) {
             axios
-                .post("https://my-flix-nejla.herokuapp.com/login", {
+                .post("https://wlad-movie-app.herokuapp.com/login", {
                     Username: username,
                     Password: password,
                 })
