@@ -15,11 +15,15 @@ function FavoriteMovies({ favoriteMovieList, onRemoveFavorite }) {
                 <Row>
                     {favoriteMovieList.map(({ ImagePath, Title, _id }) => {
                         return (
-                            <Col sm={12} md={6} lg={4} className="mt-3" key={`fav-${_id}`}>
+                            <Col sm={12} md={6} lg={4} className="mt-3" key={`fav-${_id}`} className="fav-movie">
                                 <Figure>
                                     <Link to={`/movies/${_id}`}>
-                                        <Figure.Image src={ImagePath} alt={Title} />
-                                        <Figure.Caption>{Title}</Figure.Caption>
+                                        <Figure.Image
+                                            src={ImagePath}
+                                            alt={Title} />
+                                        <Figure.Caption>
+                                            {Title}
+                                        </Figure.Caption>
                                     </Link>
                                 </Figure>
                                 <Button variant="danger" onClick={() => onRemoveFavorite(_id)}>
