@@ -1,41 +1,34 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Container, Card, Form, Button } from 'react-bootstrap';
 
-
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import {
-    Form,
-    Button,
-    Card,
-    CardGroup,
-    Container,
-    Col,
-    Row,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
-import axios from "axios";
-
+import './login-view.scss';
 export default function LoginView(props) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [usernameErr, setUsernameErr] = useState("");
-    const [passwordErr, setPasswordErr] = useState("");
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    // Declare hook for each input
+    const [usernameErr, setUsernameErr] = useState('');
+    const [passwordErr, setPasswordErr] = useState('');
 
+    // Validate user inputs
     const validate = () => {
         let isReq = true;
         if (!username) {
-            setUsernameErr("Username Required");
+            setUsernameErr('Username required');
             isReq = false;
-        } else if (username.length < 2) {
-            setUsernameErr("Username must have at least 2 characters");
+        } else if (username.length < 5) {
+            setUsernameErr('Username must be 5 or more characters');
             isReq = false;
         }
         if (!password) {
-            setPasswordErr("Password Required");
+            setPasswordErr('Password required');
             isReq = false;
         } else if (password.length < 6) {
-            setPasswordErr("Password must have at least 6 characters");
+            setPasswordErr('Password must be 6 or more characters');
             isReq = false;
         }
+
         return isReq;
     };
 
@@ -44,72 +37,71 @@ export default function LoginView(props) {
         const isReq = validate();
         if (isReq) {
             axios
-                .post("https://wlad-movie-app.herokuapp.com/login", {
+                .post('https://wlad-movie-app.herokuapp.com/login', {
                     Username: username,
                     Password: password,
                 })
-                .then((response) => {
-                    const data = response.data;
+                .then((res) => {
+                    const data = res.data;
                     props.onLoggedIn(data);
                 })
                 .catch((e) => {
-                    console.log(e, "no such user");
+                    console.log('User does not exist');
                 });
         }
     };
 
     return (
-        <Container style={{ width: 600 }}>
-            <Row>
-                <Col>
-                    <CardGroup>
-                        <Card style={{ marginTop: 100, marginBottom: 50 }}>
-                            <Card.Body>
-                                <Card.Title style={{ textAlign: "center", fontSize: "2rem" }}>
-                                    Login
-                                </Card.Title>
-                                <Form>
-                                    <Form.Group controlId="formUsername">
-                                        <Form.Label>Username:</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            value={username}
-                                            onChange={(e) => setUsername(e.target.value)}
-                                            required
-                                            placeholder="Enter a username"
-                                        />
-                                        {usernameErr && <p>{usernameErr}</p>}
-                                    </Form.Group>
+        <Container className="login-container">
+            <Card bg="dark" text="light" className="login-card">
+                <Card.Header className="text-center" as="h5">
+                    Login
+                </Card.Header>
+                <Card.Body>
+                    <Form>
+                        <Form.Group
+                            className="login-form-group-username"
+                            controlId="formUsername"
+                        >
+                            <Form.Label>Username:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            {usernameErr && <p>{usernameErr}</p>}
+                        </Form.Group>
 
-                                    <Form.Group controlId="formPassword">
-                                        <Form.Label>Password:</Form.Label>
-                                        <Form.Control
-                                            type="password"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            required
-                                            placeholder="Enter a password"
-                                        />
-                                        {passwordErr && <p>{passwordErr}</p>}
-                                    </Form.Group>
-                                    <Form.Group className="mt-2">
-                                        <Button
-                                            variant="primary"
-                                            type="submit"
-                                            onClick={handleSubmit}
-                                        >
-                                            Submit
-                                        </Button>
-                                        <Link to="/register" className="ml-2">
-                                            Register
-                                        </Link>
-                                    </Form.Group>
-                                </Form>
-                            </Card.Body>
-                        </Card>
-                    </CardGroup>
-                </Col>
-            </Row>
+                        <Form.Group
+                            className="form-group-password"
+                            controlId="formPassword"
+                        >
+                            <Form.Label>Password:</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Enter password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            {passwordErr && <p>{passwordErr}</p>}
+                        </Form.Group>
+
+                        <Button
+                            className="button-login-view"
+                            variant="secondary"
+                            type="submit"
+                            onClick={handleSubmit}
+                        >
+                            Log in
+                        </Button>
+                    </Form>
+                </Card.Body>
+            </Card>
         </Container>
     );
 }
+
+LoginView.propTypes = {
+    onLoggedIn: PropTypes.func.isRequired,
+};

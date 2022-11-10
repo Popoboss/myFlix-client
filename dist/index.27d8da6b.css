@@ -1,0 +1,108 @@
+
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.registration-card {
+  max-width: 450px;
+  margin: auto;
+}
+
+div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
+  margin-bottom: 20px;
+}
+
+.button-registration-view {
+  margin-top: 20px;
+}
+
+.fav-movie {
+  margin-bottom: 15px;
+}
+
+.fav-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-movie figure img {
+  height: 400px;
+  margin: auto;
+  display: block;
+}
+
+.fav-movie figure figcaption {
+  text-align: center;
+}
+
+.fav-movie button.btn {
+  margin: auto;
+  display: block;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+
+
+.movie-genre-description > span.label, .headline-genre-mini-cards {
+  margin: 0 0 15px;
+  display: block;
+}
+
+.card-group-genre-mini-cards {
+  margin-top: 10px;
+}
+
+.main-view {
+  padding: 50px 0;
+}
+
+.movie-card {
+  padding-bottom: 30px;
+  display: flex;
+}
+
+.my-flix {
+  color: #4682b4;
+}
+
+/*# sourceMappingURL=index.27d8da6b.css.map */
