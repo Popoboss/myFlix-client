@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Button, Nav } from 'react-bootstrap';
 
-export default function NavBar({ user }) {
+export function NavBar({ user }) {
     const onLoggedOut = () => {
         localStorage.clear();
         window.open('/', '_self');
