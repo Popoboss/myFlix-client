@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 
 import './login-view.scss';
-export default function LoginView(props) {
+export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     // Declare hook for each input

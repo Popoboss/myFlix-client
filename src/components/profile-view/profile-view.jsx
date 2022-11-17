@@ -14,7 +14,7 @@ import {
 import { Link } from 'react-router-dom';
 
 import './profile-view.scss';
-export default function ProfileView(props) {
+export function ProfileView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');

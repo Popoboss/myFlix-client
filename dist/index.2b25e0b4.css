@@ -1,8 +1,11 @@
-.my-flix {
-  color: #4682b4;
+.main-view {
+  padding: 50px 0;
 }
 
-
+.movie-card {
+  padding-bottom: 30px;
+  display: flex;
+}
 
 .registration-card {
   max-width: 450px;
@@ -17,14 +20,7 @@ div.registration-form-group-username, div.registration-form-group-password, div.
   margin-top: 20px;
 }
 
-.main-view {
-  padding: 50px 0;
-}
 
-.movie-card {
-  padding-bottom: 30px;
-  display: flex;
-}
 
 .fav-movie {
   margin-bottom: 15px;
@@ -80,4 +76,8 @@ div.registration-form-group-username, div.registration-form-group-password, div.
   margin-top: 10px;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+.my-flix {
+  color: #4682b4;
+}
+
+/*# sourceMappingURL=index.2b25e0b4.css.map */

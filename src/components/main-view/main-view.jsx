@@ -8,12 +8,12 @@ import './main-view.scss';
 
 import NavBar from '../navbar/navbar';
 import RegistrationView from '../registration-view/registration-view';
-import LoginView from '../login-view/login-view';
+import { LoginView } from '../login-view/login-view';
 import ProfileView from '../profile-view/profile-view';
-import MovieCard from '../movie-card/movie-card';
-import MovieView from '../movie-view/movie-view';
-import GenreView from '../genre-view/genre-view';
-import DirectorView from '../director-view/director-view';
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../director-view/director-view';
 
 import { Row, Col } from 'react-bootstrap';
 export default class MainView extends React.Component {
