@@ -50,7 +50,7 @@ export function RegistrationView(props) {
         const isReq = validate();
         if (isReq) {
             axios
-                .post('https://wlad-movie-app.herokuapp.com/users', {
+                .post('https://mats-js-myflixdb.herokuapp.com/users', {
                     Username: username,
                     Password: password,
                     Email: email,
