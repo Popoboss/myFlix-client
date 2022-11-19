@@ -9,6 +9,73 @@
   display: flex;
 }
 
+.registration-card {
+  max-width: 450px;
+  margin: auto;
+}
+
+div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
+  margin-bottom: 20px;
+}
+
+.button-registration-view {
+  margin-top: 20px;
+}
+
+.fav-movie {
+  margin-bottom: 15px;
+}
+
+.fav-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-movie figure img {
+  height: 400px;
+  margin: auto;
+  display: block;
+}
+
+.fav-movie figure figcaption {
+  text-align: center;
+}
+
+.fav-movie button.btn {
+  margin: auto;
+  display: block;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.movie-genre-description > span.label, .headline-genre-mini-cards {
+  margin: 0 0 15px;
+  display: block;
+}
+
+.card-group-genre-mini-cards {
+  margin-top: 10px;
+}
+
+.movie-director-bio > span.label, .headline-director-mini-cards {
+  margin: 15px 0;
+  display: block;
+}
+
+.movie-director-birth > span.label, .movie-director-death > span.label {
+  font-weight: 400;
+}
+
+.card-group-director-mini-cards {
+  margin-top: 10px;
+}
+
 .my-flix {
   color: #4682b4;
 }
