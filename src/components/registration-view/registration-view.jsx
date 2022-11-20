@@ -43,7 +43,8 @@ export function RegistrationView(props) {
         return isReq;
     };
 
-    @@ -50, 99 + 54, 89 @@ export function RegistrationView(props) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const isReq = validate();
         if (isReq) {
             axios
