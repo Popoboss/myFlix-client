@@ -1,0 +1,4 @@
+{"_id":{"$oid":"62d9e5aa93f26e88e87362d6"},"Username":"Wladimir Diaz","Password":"wladpassword","Email":"wlad_diaz@yahoo.com","Birthday":"1981-02-28","FavoriteMovies":[{"$oid":"62d987b093f26e88e87362cb"},{"$oid":"62d9d09693f26e88e87362d2"}]}
+{"_id":{"$oid":"62d9e76793f26e88e87362d7"},"Username":"Sheyla Diaz","Password":"sheylapassword","Email":"sheyla_diaz@yahoo.com","Birthday":"1985-03-18","FavoriteMovies":[{"$oid":"62d9daea93f26e88e87362d4"}]}
+{"_id":{"$oid":"62d9e82b93f26e88e87362d8"},"Username":"Damian Nodarse","Password":"damianpassword","Email":"damiantiny@yahoo.com","Birthday":"2008-04-08","FavoriteMovies":[{"$oid":"62d9d09693f26e88e87362d2"}]}
+{"_id":{"$oid":"62d9e9ce93f26e88e87362da"},"Username":"Harry Potter","Password":"harrypotter","Email":"harrypotter@yahoo.com","Birthday":"1980-07-31","FavoriteMovies":[{"$oid":"62d9d09693f26e88e87362d2"}]}
