@@ -31,8 +31,5 @@
     "react-router-dom": "^5.3.4",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9"
-  },
-  "devDependencies": {
-    "buffer": "^5.5.0"
   }
 }
