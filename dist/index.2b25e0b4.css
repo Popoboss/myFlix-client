@@ -7,20 +7,31 @@
   display: flex;
 }
 
-.registration-card {
-  max-width: 450px;
-  margin: auto;
+.my-flix {
+  color: #4682b4;
 }
 
-div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
-  margin-bottom: 20px;
+.movie-director-bio > span.label, .headline-director-mini-cards {
+  margin: 15px 0;
+  display: block;
 }
 
-.button-registration-view {
-  margin-top: 20px;
+.movie-director-birth > span.label, .movie-director-death > span.label {
+  font-weight: 400;
 }
 
+.card-group-director-mini-cards {
+  margin-top: 10px;
+}
 
+.movie-genre-description > span.label, .headline-genre-mini-cards {
+  margin: 0 0 15px;
+  display: block;
+}
+
+.card-group-genre-mini-cards {
+  margin-top: 10px;
+}
 
 .fav-movie {
   margin-bottom: 15px;
@@ -54,30 +65,19 @@ div.registration-form-group-username, div.registration-form-group-password, div.
   margin-bottom: 15px;
 }
 
-.movie-genre-description > span.label, .headline-genre-mini-cards {
-  margin: 0 0 15px;
-  display: block;
+
+
+.registration-card {
+  max-width: 450px;
+  margin: auto;
 }
 
-.card-group-genre-mini-cards {
-  margin-top: 10px;
+div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
+  margin-bottom: 20px;
 }
 
-.movie-director-bio > span.label, .headline-director-mini-cards {
-  margin: 15px 0;
-  display: block;
-}
-
-.movie-director-birth > span.label, .movie-director-death > span.label {
-  font-weight: 400;
-}
-
-.card-group-director-mini-cards {
-  margin-top: 10px;
-}
-
-.my-flix {
-  color: #4682b4;
+.button-registration-view {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=index.2b25e0b4.css.map */
