@@ -1,25 +1,29 @@
 
 
-.main-view {
-  padding: 50px 0;
+.my-flix {
+  color: #4682b4;
 }
 
-.movie-card {
-  padding-bottom: 30px;
-  display: flex;
+.movie-director-bio > span.label, .headline-director-mini-cards {
+  margin: 15px 0;
+  display: block;
 }
 
-.registration-card {
-  max-width: 450px;
-  margin: auto;
+.movie-director-birth > span.label, .movie-director-death > span.label {
+  font-weight: 400;
 }
 
-div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
-  margin-bottom: 20px;
+.card-group-director-mini-cards {
+  margin-top: 10px;
 }
 
-.button-registration-view {
-  margin-top: 20px;
+.movie-genre-description > span.label, .headline-genre-mini-cards {
+  margin: 0 0 15px;
+  display: block;
+}
+
+.card-group-genre-mini-cards {
+  margin-top: 10px;
 }
 
 .fav-movie {
@@ -54,30 +58,66 @@ div.registration-form-group-username, div.registration-form-group-password, div.
   margin-bottom: 15px;
 }
 
-.movie-genre-description > span.label, .headline-genre-mini-cards {
-  margin: 0 0 15px;
+.registration-card {
+  max-width: 450px;
+  margin: auto;
+}
+
+div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
+  margin-bottom: 20px;
+}
+
+.button-registration-view {
+  margin-top: 20px;
+}
+
+.main-view {
+  padding: 50px 0;
+}
+
+.movie-card {
+  padding-bottom: 30px;
+  display: flex;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
   display: block;
 }
 
-.card-group-genre-mini-cards {
-  margin-top: 10px;
+.label {
+  font-weight: bold;
 }
 
-.movie-director-bio > span.label, .headline-director-mini-cards {
-  margin: 15px 0;
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
   display: block;
 }
 
-.movie-director-birth > span.label, .movie-director-death > span.label {
-  font-weight: 400;
+.label {
+  font-weight: bold;
 }
 
-.card-group-director-mini-cards {
-  margin-top: 10px;
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
 }
 
-.my-flix {
-  color: #4682b4;
+.movieCard {
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=index.27d8da6b.css.map */

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import './login-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { RegistrationView } from '../registration-view/registration-view.scss';
+import { Container, Card, Form, Button } from 'react-bootstrap';
+
 
 import axios from 'axios';
 

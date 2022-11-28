@@ -33,6 +33,46 @@
   margin-top: 10px;
 }
 
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.movieCard {
+  font-weight: 600;
+}
+
 .fav-movie {
   margin-bottom: 15px;
 }
@@ -64,6 +104,8 @@
 .card {
   margin-bottom: 15px;
 }
+
+
 
 .registration-card {
   max-width: 450px;

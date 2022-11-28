@@ -1,99 +1,89 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CardGroup, Button, Card } from 'react-bootstrap';
 
-import Button from "react-bootstrap/Button";
-import { Button, Row } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
+import './movie-view.scss';
+export class MovieView extends React.Component {
+    render() {
+        const { movie, addFavorite, onBackClick } = this.props;
 
-export function MovieView({ movie, onBackClick }) {
-    const [favoriteMovies, setFavoriteMovies] = useState([]);
-    const currentUser = localStorage.getItem("user");
-    const token = localStorage.getItem("token");
-
-    const getFavoriteMoviesArray = (username) => {
-        axios
-            .get(`${process.env.MY_FLIX_API}/users/${username}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((response) => {
-                setFavoriteMovies(response.data.FavoriteMovies);
-            })
-            .catch((error) => console.error(error));
-    };
-
-    const addMovieToFavorites = (username, movieId) => {
-        axios
-            .post(`${process.env.MY_FLIX_API}/users/${username}/movies/${movieId}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((response) => {
-                setFavoriteMovies(response.data.FavoriteMovies);
-            })
-            .catch((error) => console.error(error));
-    };
-
-    const removeMovieFromFavorites = (username, movieId) => {
-        axios
-            .delete(
-                `${process.env.MY_FLIX_API}/users/${username}/movies/${movieId}`,
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
-            .then((response) => {
-                setFavoriteMovies(response.data.FavoriteMovies);
-            })
-            .catch((error) => console.error(error));
-    };
-
-    useEffect(() => {
-        getFavoriteMoviesArray(currentUser);
-    }, []);
-
-    return (
-        <div className="movie-view">
-            <Button className="pl-0" onClick={() => onBackClick()} variant="link">
-                Back
-            </Button>
-            <div className="movie-poster pb-3">
-                <img width="150" src={movie.ImagePath} />
-            </div>
-            <div className="movie-title">
-                <span className="label">Title: </span>
-                <span className="value">{movie.Title}</span>
-            </div>
-            <div className="movie-description">
-                <span className="label">Description: </span>
-                <span className="value">{movie.Description}</span>
-            </div>
-            <Row className="mx-0">
-                <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button className="pl-0" variant="link">
-                        Director
-                    </Button>
-                </Link>
-                <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button variant="link">Genre</Button>
-                </Link>
-            </Row>
-            <Row className="mx-0">
-                {favoriteMovies.includes(movie._id) ? (
+        return (
+            <Card bg="dark" text="light">
+                <Card.Header className="text-center" as="h5">
+                    {movie.Title}
                     <Button
-                        variant="danger"
-                        onClick={() => removeMovieFromFavorites(currentUser, movie._id)}
-                    >
-                        Remove from favorites
-                    </Button>
-                ) : (
-                    <Button
-                        variant="success"
-                        onClick={() => addMovieToFavorites(currentUser, movie._id)}
+                        className="button-movie-view-add-favorite"
+                        variant="outline-warning"
+                        size="sm"
+                        type="button"
+                        onClick={() => addFavorite(movie._id)}
                     >
                         Add to favorites
                     </Button>
-                )}
-            </Row>
-        </div>
-    );
+                </Card.Header>
+                <Card.Body>
+                    <CardGroup>
+                        <Card bg="dark" border="dark" text="light">
+                            <Card.Body className="movie-textarea">
+                                <div className="movie-genre-link">
+                                    <span className="label">Genre: </span>
+                                    <Link to={`/genres/${movie.Genre.Name}`}>
+                                        <Button variant="link">{movie.Genre.Name}</Button>
+                                    </Link>
+                                    <div className="movie-director-link">
+                                        <span className="label">Director: </span>
+                                        <Link to={`/directors/${movie.Director.Name}`}>
+                                            <Button variant="link">{movie.Director.Name}</Button>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <span className="movie-description">{movie.Description}</span>
+                            </Card.Body>
+                        </Card>
+                        <Card bg="dark" border="dark" text="light">
+                            <Card.Img
+                                className="movie-poster"
+                                as="img"
+                                crossOrigin="anonymous | use-credentials"
+                                src={movie.ImagePath}
+                            />
+                        </Card>
+                    </CardGroup>
+                </Card.Body>
+                <Card.Footer className="text-right">
+                    <Button
+                        className="button-movie-view"
+                        variant="secondary"
+                        onClick={() => {
+                            onBackClick();
+                        }}
+                    >
+                        Back
+                    </Button>
+                </Card.Footer>
+            </Card>
+        );
+    }
 }
+
+MovieView.propTypes = {
+    movie: PropTypes.shape({
+        Title: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+        ImagePath: PropTypes.string.isRequired,
+        Genre: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+        }).isRequired,
+        Actors: PropTypes.array.isRequired,
+        Director: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string.isRequired,
+            Birth: PropTypes.string.isRequired,
+            Death: PropTypes.string.isRequired,
+        }).isRequired,
+    }).isRequired,
+    onBackClick: PropTypes.func.isRequired,
+};
