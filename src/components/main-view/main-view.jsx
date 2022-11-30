@@ -47,8 +47,11 @@ export class MainView extends React.Component {
             .get('https://wlad-movie-app.herokuapp.com/movies', {
                 headers: { Authorization: `Bearer ${token}` },
             })
-            .then((res) => {
-                this.props.setMovies(res.data);
+            .then(response => {
+                // Assign the result to the state
+                this.setState({
+                    movies: response.data
+                });
             })
             .catch(function (error) {
                 console.log(error);
