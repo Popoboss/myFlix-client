@@ -82,7 +82,6 @@ MovieView.propTypes = {
             Name: PropTypes.string.isRequired,
             Bio: PropTypes.string.isRequired,
             Birth: PropTypes.string.isRequired,
-            Death: PropTypes.string.isRequired,
         }).isRequired,
     }).isRequired,
     onBackClick: PropTypes.func.isRequired,
