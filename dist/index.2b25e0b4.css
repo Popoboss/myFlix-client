@@ -69,10 +69,6 @@ span.movie-description, div.movie-genre-description, div.movie-actors {
   right: 10px;
 }
 
-.movieCard {
-  font-weight: 600;
-}
-
 .fav-movie {
   margin-bottom: 15px;
 }
