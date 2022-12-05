@@ -27152,7 +27152,7 @@ class MainView extends (0, _reactDefault.default).Component {
         this.getMovies(authData.token);
     }
     getMovies(token) {
-        (0, _axiosDefault.default).get("https://wlad-movie-app.herokuapp.com/movies", {
+        (0, _axiosDefault.default).get("https://wlad-movie-apps.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27176,7 +27176,7 @@ class MainView extends (0, _reactDefault.default).Component {
                     movieId
                 ]
             });
-            (0, _axiosDefault.default).post(`https://wlad-movie-app.herokuapp.com/users/${user}/movies/${movieId}`, {}, {
+            (0, _axiosDefault.default).post(`https://wlad-movie-apps.herokuapp.com/users/${user}/movies/${movieId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -27194,7 +27194,7 @@ class MainView extends (0, _reactDefault.default).Component {
             this.setState({
                 favoriteMovies: favoriteMovies.filter((movie)=>movie !== movieId)
             });
-            (0, _axiosDefault.default).delete(`https://wlad-movie-app.herokuapp.com/users/${user}/movies/${movieId}`, {
+            (0, _axiosDefault.default).delete(`https://wlad-movie-apps.herokuapp.com/users/${user}/movies/${movieId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -39623,7 +39623,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) (0, _axiosDefault.default).post("https://wlad-movie-app.herokuapp.com/users", {
+        if (isReq) (0, _axiosDefault.default).post("https://wlad-movie-apps.herokuapp.com/users", {
             Username: username,
             Password: password,
             Email: email,
@@ -39871,7 +39871,7 @@ function LoginView(props) {
     const [password, setPassword] = (0, _react.useState)("");
     const handleSubmit = (e)=>{
         e.preventDefault();
-        /* Send a request to the server for authentication */ (0, _axiosDefault.default).post("https://wlad-movie-app.herokuapp.com/login", {
+        /* Send a request to the server for authentication */ (0, _axiosDefault.default).post("https://wlad-movie-apps.herokuapp.com/login", {
             Username: username,
             Password: password
         }).then((response)=>{
@@ -40519,7 +40519,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Card":"lAynp","react-router-dom":"cHIiW"}],"ggaUx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Button":"aPzUt","react-bootstrap/Card":"lAynp","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

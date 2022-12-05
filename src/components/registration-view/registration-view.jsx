@@ -48,7 +48,7 @@ export function RegistrationView(props) {
         const isReq = validate();
         if (isReq) {
             axios
-                .post('https://wlad-movie-app.herokuapp.com/users', {
+                .post('https://wlad-movie-apps.herokuapp.com/users', {
                     Username: username,
                     Password: password,
                     Email: email,

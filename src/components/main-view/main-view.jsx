@@ -44,7 +44,7 @@ export class MainView extends React.Component {
 
     getMovies(token) {
         axios
-            .get('https://wlad-movie-app.herokuapp.com/movies', {
+            .get('https://wlad-movie-apps.herokuapp.com/movies', {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then(response => {
@@ -70,7 +70,7 @@ export class MainView extends React.Component {
                 });
                 axios
                     .post(
-                        `https://wlad-movie-app.herokuapp.com/users/${user}/movies/${movieId}`,
+                        `https://wlad-movie-apps.herokuapp.com/users/${user}/movies/${movieId}`,
                         {},
                         {
                             headers: {
@@ -97,7 +97,7 @@ export class MainView extends React.Component {
             });
             axios
                 .delete(
-                    `https://wlad-movie-app.herokuapp.com/users/${user}/movies/${movieId}`,
+                    `https://wlad-movie-apps.herokuapp.com/users/${user}/movies/${movieId}`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }
