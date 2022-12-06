@@ -1,10 +1,5 @@
-.main-view {
-  padding: 50px 0;
-}
-
-.movie-card {
-  padding-bottom: 30px;
-  display: flex;
+.bright-bg {
+  background-color: #64dd17;
 }
 
 .my-flix {
@@ -101,7 +96,21 @@ span.movie-description, div.movie-genre-description, div.movie-actors {
   margin-bottom: 15px;
 }
 
+.registration {
+  padding-top: 50px;
+}
 
+.login-signup {
+  width: 30%;
+}
+
+.btn {
+  border-radius: 30px !important;
+}
+
+#round-form {
+  border-radius: 30px;
+}
 
 .registration-card {
   max-width: 450px;
