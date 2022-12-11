@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Popoboss/myFlix-client#readme",
   "dependencies": {
-    "@parcel/transformer-sass": "^2.8.1",
+    "@parcel/transformer-sass": "^2.7.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "parcel": "^2.8.1",
