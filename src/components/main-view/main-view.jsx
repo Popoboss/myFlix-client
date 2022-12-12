@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Buffer } from 'buffer';
+global.Buffer = Buffer;
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
