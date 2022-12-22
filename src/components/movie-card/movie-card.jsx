@@ -1,6 +1,7 @@
-// movie-card.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -19,16 +20,26 @@ export class MovieCard extends React.Component {
                     <Link to={`/movies/${movie._id}`}>
                         <Button variant="link">Open</Button>
                     </Link>
+
+                    <Link to={`/directors/${movie.Director.Name}`}>
+                        <Button variant="link">Director</Button>
+                    </Link>
+
+                    <Link to={`/genres/${movie.Genre.Name}`}>
+                        <Button variant="link">Genre</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         );
     }
 }
-
 MovieCard.propTypes = {
     movie: PropTypes.shape({
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
         ImagePath: PropTypes.string.isRequired
     }).isRequired,
+    onMovieClick: PropTypes.func.isRequired
 };
+
+export default MovieCard;

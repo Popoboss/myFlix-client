@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Buffer } from 'buffer';
 global.Buffer = Buffer;
+import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
@@ -18,6 +19,10 @@ import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 
 import { Row, Col } from 'react-bootstrap';
+
+import { setMovies } from '../../actions/actions';
+
+
 export class MainView extends React.Component {
     constructor() {
         super();
@@ -298,4 +303,9 @@ export class MainView extends React.Component {
     }
 }
 
-MainView.propTypes = {};
+let mapStateToProps = state => {
+    return { movies: state.movies }
+}
+
+// #8
+export default connect(mapStateToProps, { setMovies })(MainView);

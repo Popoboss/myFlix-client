@@ -2,4 +2,95 @@
   color: #4682b4;
 }
 
+.movie-genre-description > span.label, .headline-genre-mini-cards {
+  margin: 0 0 15px;
+  display: block;
+}
+
+.card-group-genre-mini-cards {
+  margin-top: 10px;
+}
+
+.movie-director-bio > span.label, .headline-director-mini-cards {
+  margin: 15px 0;
+  display: block;
+}
+
+.movie-director-birth > span.label, .movie-director-death > span.label {
+  font-weight: 400;
+}
+
+.card-group-director-mini-cards {
+  margin-top: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.registration-card {
+  max-width: 450px;
+  margin: auto;
+}
+
+div.registration-form-group-username, div.registration-form-group-password, div.registration-form-group-email {
+  margin-bottom: 20px;
+}
+
+.button-registration-view {
+  margin-top: 20px;
+}
+
+.registration {
+  padding-top: 50px;
+}
+
+.login-signup {
+  width: 30%;
+}
+
+.btn {
+  border-radius: 30px !important;
+}
+
+#round-form {
+  border-radius: 30px;
+}
+
+.bright-bg {
+  background-color: #64dd17;
+}
+
 /*# sourceMappingURL=index.ce1d6491.css.map */
