@@ -15,6 +15,10 @@ div.registration-form-group-username, div.registration-form-group-password, div.
   color: #4682b4;
 }
 
+.bright-bg {
+  background-color: #64dd17;
+}
+
 .movie-director-bio > span.label, .headline-director-mini-cards {
   margin: 15px 0;
   display: block;
@@ -35,6 +39,42 @@ div.registration-form-group-username, div.registration-form-group-password, div.
 
 .card-group-genre-mini-cards {
   margin-top: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
+}
+
+.movie-textarea.card-body {
+  padding: 0 15px 0 0;
+}
+
+span.movie-description, div.movie-genre-description, div.movie-actors {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.button-movie-view-add-favorite {
+  position: absolute;
+  right: 10px;
 }
 
 .fav-movie {
@@ -69,53 +109,20 @@ div.registration-form-group-username, div.registration-form-group-password, div.
   margin-bottom: 15px;
 }
 
-.main-view {
-  padding: 50px 0;
+.registration {
+  padding-top: 50px;
 }
 
-.movie-card {
-  padding-bottom: 30px;
-  display: flex;
+.login-signup {
+  width: 30%;
 }
 
-.movie-textarea.card-body {
-  padding: 0 15px 0 0;
+.btn {
+  border-radius: 30px !important;
 }
 
-span.movie-description, div.movie-genre-description, div.movie-actors {
-  padding-bottom: 15px;
-  display: block;
-}
-
-.label {
-  font-weight: bold;
-}
-
-.button-movie-view-add-favorite {
-  position: absolute;
-  right: 10px;
-}
-
-.movie-textarea.card-body {
-  padding: 0 15px 0 0;
-}
-
-span.movie-description, div.movie-genre-description, div.movie-actors {
-  padding-bottom: 15px;
-  display: block;
-}
-
-.label {
-  font-weight: bold;
-}
-
-.button-movie-view-add-favorite {
-  position: absolute;
-  right: 10px;
-}
-
-.movieCard {
-  font-weight: 600;
+#round-form {
+  border-radius: 30px;
 }
 
 /*# sourceMappingURL=index.3bb28fe2.css.map */

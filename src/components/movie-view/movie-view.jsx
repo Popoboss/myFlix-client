@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CardGroup, Button, Card } from 'react-bootstrap';
 
-
+import './movie-view.scss';
 import { Link } from 'react-router-dom';
 
-import './movie-view.scss';
+
 export class MovieView extends React.Component {
     render() {
         const { movie, addFavorite, onBackClick } = this.props;

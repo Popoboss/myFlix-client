@@ -1,13 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { Buffer } from 'buffer';
 global.Buffer = Buffer;
 import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import './main-view.scss';
 
 import { NavBar } from '../navbar/navbar';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -18,9 +16,13 @@ import { MovieView } from '../movie-view/movie-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 
+
 import { Row, Col } from 'react-bootstrap';
 
+import './main-view.scss';
+
 import { setMovies } from '../../actions/actions';
+import MoviesList from '../movies-list/movies-list';
 
 
 export class MainView extends React.Component {
@@ -153,12 +155,15 @@ export class MainView extends React.Component {
                             // Before the movies have been loaded
                             if (movies.length === 0) return <div className="main-view" />;
 
+
                             return movies.map((m) => (
                                 <Col md={6} lg={3} key={m._id} className="movie-card">
                                     <MovieCard movie={m} />
                                 </Col>
                             ));
+
                         }}
+
                     />
                     <Route
                         path="/register"
